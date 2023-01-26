@@ -20,6 +20,8 @@
 
 #define FILENAME   "ssq1.dat"                  /* input data file */
 #define START      0.0
+//CODE
+#define JOBNUM    1000
 
 /* =========================== */
    double GetArrival(FILE *fp)                 /* read an arrival time */
@@ -49,6 +51,7 @@
   long   index     = 0;                        /* job index            */
   double arrival   = START;                    /* arrival time         */
   double delay;                                /* delay in queue       */
+  
   double service;                              /* service time         */
   double wait;                                 /* delay + service      */
   double departure = START;                    /* departure time       */
@@ -58,7 +61,11 @@
     double service;                            /*   service times      */
     double interarrival;                       /*   interarrival times */
   } sum = {0.0, 0.0, 0.0};
-
+//CODE
+  double max_delay = 0;
+  long num_delays = 0;
+  long tc = 400;
+  long l = 0;
   fp = fopen(FILENAME, "r");
   if (fp == NULL) {
     fprintf(stderr, "Cannot open input file %s\n", FILENAME);
@@ -69,23 +76,40 @@
     index++;
     arrival      = GetArrival(fp);
     if (arrival < departure) 
-      delay      = departure - arrival;        /* delay in queue    */
+      {
+        delay = departure - arrival;        /* delay in queue    */
+        num_delays++;
+        //CODE
+        if (delay > max_delay) {
+          max_delay = delay;
+        }
+
+      }
     else 
       delay      = 0.0;                        /* no delay          */
     service      = GetService(fp);
     wait         = delay + service;
     departure    = arrival + wait;             /* time of departure */
+    //CODE
+    if (arrival < tc && tc < departure) {
+      l++;
+    }
+
     sum.delay   += delay;
     sum.wait    += wait;
     sum.service += service;
   }
   sum.interarrival = arrival - START;
 
-  printf("\nfor %ld jobs\n", index);
-  printf("   average interarrival time = %6.2f\n", sum.interarrival / index);
-  printf("   average service time .... = %6.2f\n", sum.service / index);
-  printf("   average delay ........... = %6.2f\n", sum.delay / index);
-  printf("   average wait ............ = %6.2f\n", sum.wait / index);
+  printf("   \nfor %ld jobs\n", index);
+  printf("   average interarrival time ..................= %6.2f\n", sum.interarrival / index);
+  printf("   average service time .... ..................= %6.2f\n", sum.service / index);
+  printf("   average delay ........... ..................= %6.2f\n", sum.delay / index);
+  printf("   average wait .............................. = %6.2f\n", sum.wait / index);
+
+  printf("   maximum delay ............................. = %6.2f\n", max_delay);
+  printf("   num of jobs in the service node at (t=400)  = %ld\n", l);
+  printf("   proportion of jobs delayed ...............  = %6.2f\n", (double) num_delays / (double) index);
 
   fclose(fp);
   return (0);
