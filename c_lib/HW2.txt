@@ -7,3 +7,5 @@ for 1000 jobs
    maximum delay ............................. = 118.76
    num of jobs in the service node at (t=400)  = 7
    proportion of jobs delayed ...............  =   0.72
+   
+   

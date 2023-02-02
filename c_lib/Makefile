@@ -78,6 +78,9 @@ ssms: ssms.c rngs.o
 ssq1: ssq1.c
 	$(CC) $(LDFLAGS) $^ -o $@
 
+ac: ac.c
+	$(CC) $(LDFLAGS) $^ -o $@
+
 ssq2: ssq2.c rng.o
 	$(CC) $(LDFLAGS) $^ -o $@
 

@@ -64,27 +64,30 @@
    int main(void)
 {
   struct {
-    double arrival;                 /* next arrival time                   */
-    double completion;              /* next completion time                */
-    double current;                 /* current time                        */
+    double arrival;  //a_i               /* next arrival time                   */
+    double completion;    //c_i          /* next completion time                */
+    double current;  //clock, next event time               /* current time                        */
     double next;                    /* next (most imminent) event time     */
-    double last;                    /* last arrival time                   */
+    double last;  //a_n                  /* last arrival time                   */
   } t;
   struct {
-    double node;                    /* time integrated number in the node  */
-    double queue;                   /* time integrated number in the queue */
-    double service;                 /* time integrated number in service   */
+    double node;  //l(t)                  /* time integrated number in the node  */
+    double queue; //q(t)                  /* time integrated number in the queue */
+    double service; //x(t)                /* time integrated number in service   */
   } area      = {0.0, 0.0, 0.0};
-  long index  = 0;                  /* used to count departed jobs         */
-  long number = 0;                  /* number in the node                  */
+  long index  = 0;  //                /* used to count departed jobs         */
+  long number = 0;  //l(t)                /* number in the node                  */
 
+//first initialize all these times
   PlantSeeds(0);
-  t.current    = START;           /* set the clock                         */
+  t.current    = START;  //0         /* set the clock                         */
   t.arrival    = GetArrival();    /* schedule the first arrival            */
   t.completion = INFINITY;        /* the first event can't be a completion */
 
-  while ((t.arrival < STOP) || (number > 0)) {
-    t.next          = Min(t.arrival, t.completion);  /* next event time   */
+
+  while ((t.arrival < STOP) || (number > 0)) { // still has jobs in the node
+    t.next          = Min(t.arrival, t.completion);  /* next event time   */ //arrival event or departure event
+    //update statistic area
     if (number > 0)  {                               /* update integrals  */
       area.node    += (t.next - t.current) * number;
       area.queue   += (t.next - t.current) * (number - 1);

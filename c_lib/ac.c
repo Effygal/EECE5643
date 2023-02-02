@@ -8,21 +8,21 @@
  * time, the average delay in the queue, and the average wait in the service 
  * node. 
  *
- * Name              : ssq1.c  (Single Server Queue, version 1)
- * Authors           : Steve Park & Dave Geyer
+ * Name              : ac.c  (Single Server Queue, version 1)
+ * Authors           : Steve Park & Dave Geyer (Modified by Effy)
  * Language          : ANSI C
- * Latest Revision   : 9-01-98
- * Compile with      : gcc ssq1.c 
+ * Latest Revision   : N/A
+ * Compile with      : gcc ac.c 
  * ------------------------------------------------------------------------- 
  */
 
 #include <stdio.h>  
 #include <stdlib.h>                          
 
-#define FILENAME   "ssq1.dat"                  /* input data file */
+#define FILENAME   "ac.dat"                  /* input data file */
 #define START      0.0
 //CODE
-#define JOBNUM    1000
+#define JOBNUM    500
 
 /* =========================== */
    double GetArrival(FILE *fp)                 /* read an arrival time */
@@ -35,13 +35,13 @@
 }
 
 /* =========================== */
-   double GetService(FILE *fp)                 /* read a service time */
+   double GetDeparture(FILE *fp)                 /* read a departure time */
 /* =========================== */
 { 
-  double s;
+  double d;
 
-  fscanf(fp, "%lf\n", &s);
-  return (s);
+  fscanf(fp, "%lf\n", &d);
+  return (d);
 }
 
 /* ============== */
@@ -63,10 +63,10 @@
     double interarrival;                       /*   interarrival times */
   } sum = {0.0, 0.0, 0.0};
 //CODE
-  double max_delay = 0;
-  long num_delays = 0;
-  long tc = 400;
-  long l = 0;
+  //double max_delay = 0;
+  //long num_delays = 0;
+  //long tc = 400;
+  //long l = 0;
   fp = fopen(FILENAME, "r");
   if (fp == NULL) {
     fprintf(stderr, "Cannot open input file %s\n", FILENAME);
@@ -79,40 +79,29 @@
     if (arrival < departure) 
       {
         delay = departure - arrival;        /* delay in queue    */
-        num_delays++;
+        //num_delays++;
         //CODE
-        if (delay > max_delay) {
-          max_delay = delay;
-        }
-        //max_delay = max(max_delay, delay);
+        
 
       }
-    else 
-      delay      = 0.0;                        /* no delay          */
-    service      = GetService(fp);
+    else {
+      delay      = 0.0; /* no delay          */
+      }                     
+    departure    =  GetDeparture(fp);             /* time of departure */
+    service      = departure - arrival - delay;
     wait         = delay + service;
-    departure    = arrival + wait;             /* time of departure */
-    //CODE
-    if (arrival < tc && tc < departure) {
-      l++;
-    }
-
     sum.delay   += delay;
     sum.wait    += wait;
     sum.service += service;
   }
   sum.interarrival = arrival - START;
-
+  double s_avg = sum.service / index;
+  double x_avg = (index/departure)*s_avg;
+  double rou = (departure/arrival)*x_avg;
   printf("   \nfor %ld jobs\n", index);
-  printf("   average interarrival time ..................= %6.2f\n", sum.interarrival / index);
-  printf("   average service time .... ..................= %6.2f\n", sum.service / index);
-  printf("   average delay ........... ..................= %6.2f\n", sum.delay / index);
-  printf("   average wait .............................. = %6.2f\n", sum.wait / index);
-
-  printf("   maximum delay ............................. = %6.2f\n", max_delay);
-  printf("   num of jobs in the service node at (t=400)  = %ld\n", l);
-  printf("   proportion of jobs delayed ...............  = %6.2f\n", (double) num_delays / (double) index);
-
+  printf("   average service time .... ..................= %6.2f\n", s_avg);
+  printf("   server's utilization .... ..................= %6.2f\n", x_avg);
+  printf("   traffic intensity .... .....................= %6.2f\n", rou);
   fclose(fp);
   return (0);
 }
