@@ -1,0 +1,34 @@
+Ex.1.2.2   
+for 1000 jobs
+   average interarrival time ..................=   9.87
+   average service time .... ..................=   7.12
+   average delay ........... ..................=  18.59
+   average wait .............................. =  25.72
+   maximum delay ............................. = 118.76
+   num of jobs in the service node at (t=400)  = 7
+   proportion of jobs delayed ...............  =   0.72
+   
+Ex.1.2.6   
+for 500 jobs
+   average service time .... ..................=   3.03
+   server's utilization .... ..................=   0.74
+   traffic intensity .... .....................=   0.74
+   
+Ex.2.3.4
+based on 100000 replications the estimated probabilities are:
+p[ 2] = 0.006
+p[ 3] = 0.024
+p[ 4] = 0.047
+p[ 5] = 0.069
+p[ 6] = 0.095
+p[ 7] = 0.144
+p[ 8] = 0.165
+p[ 9] = 0.142
+p[10] = 0.118
+p[11] = 0.096
+p[12] = 0.094
+
+Ex.2.3.5
+based on 100000 replications the estimated probabilities are:
+p = 0.667
+
