@@ -101,6 +101,7 @@
     sum.wait    += wait;
     sum.service += service;
   }
+  printf("%6.2f\n", departure);
   sum.interarrival = arrival - START;
   printf("   \n Ex.1.2.2");
   printf("   \nfor %ld jobs\n", index);

@@ -15,17 +15,17 @@ for 500 jobs
    traffic intensity .... .....................=   0.74
    
 Ex.2.3.4
-based on 100000 replications the estimated probabilities are:
+based on 1000000 replications the estimated probabilities are:
 p[ 2] = 0.006
 p[ 3] = 0.024
-p[ 4] = 0.047
-p[ 5] = 0.069
+p[ 4] = 0.048
+p[ 5] = 0.071
 p[ 6] = 0.095
-p[ 7] = 0.144
+p[ 7] = 0.142
 p[ 8] = 0.165
 p[ 9] = 0.142
-p[10] = 0.118
-p[11] = 0.096
+p[10] = 0.119
+p[11] = 0.095
 p[12] = 0.094
 
 Ex.2.3.5

@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include "../c_lib/rng.h"
 
-#define N 100000L                          /* number of replications */
+#define N 1000000L                          /* number of replications */
 
 
    long un_Equilikely(const long* arr, long size)        
@@ -35,7 +35,7 @@
   long   count[13] = {0};                 /* histogram              */
   double p[13]     = {0.0};               /* probability estimates  */
 
-  PutSeed(5050);
+  PutSeed(5151);
   const static long arr[14] = {1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 6, 6};
   for (i = 0; i < N; i++) {
     x = un_Equilikely(arr, 13) + un_Equilikely(arr, 13);
