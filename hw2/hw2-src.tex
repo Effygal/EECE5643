@@ -172,7 +172,7 @@
 \paragraph{Homework 2}
 
 
-Source code: \url{https://github.khoury.northeastern.edu/yirongwn/EECE5643/tree/master/hw2}
+Source code: \url{https://github.com/Effygal/EECE5643/tree/main/hw2}
 \begin{enumerate}[leftmargin=0pt, itemsep=3ex]
 
     \problemitem Ex1.2.2
@@ -193,7 +193,8 @@ Source code: \url{https://github.khoury.northeastern.edu/yirongwn/EECE5643/tree/
     \item (d) The simulation results shows that the proportion of jobs delayed = 0.72. Given that $$\overline{x} = \frac{1}{c_n} \int_{0}^{c_n}x(t)dt$$
     and, $$\int_{0}^{c_n}x(t)dt = \sum_{i=1}^{n}s_i$$
     therefore, $$\overline{x} = \frac{n \overline{s}}{c_n} = \frac{1000 \times 7.12}{9897.22} \approx 0.72$$
-    Observe that this number is equal to the proportion of job delayed. The explanation is that ...
+    Observe that this number is equal to the proportion of job delayed. An intuiative explanation is that whenever the server is busy, there are jobs get delayed in the queue; when the server is idle, there is no job in the queue.
+    The two ratios converge with each other.
     
     \end{enumerate}
 
@@ -237,7 +238,7 @@ Source code: \url{https://github.khoury.northeastern.edu/yirongwn/EECE5643/tree/
         \\P[X=11] = 0.095
         \\P[X=12] = 0.094
         \end{align*}
-        \item (b)
+        \item (b) Axiomatically,
         \begin{align*}
             P[X=7] &= P[1 \land 6]+P[2 \land 5]+P[3 \land 4]
              \\ &= \frac{1}{13}\times \frac{4}{13} \times 2 + \frac{2}{13}\times \frac{2}{13} \times 2 + \frac{2}{13}\times \frac{2}{13} \times 2 
@@ -254,7 +255,9 @@ Source code: \url{https://github.khoury.northeastern.edu/yirongwn/EECE5643/tree/
             Let $d(\overrightarrow{v},\overrightarrow{w})$ denote the distance between $\overrightarrow{v}$ and $\overrightarrow{w}$.
     Based on 100000 replications of Monte Carlo simulation, the estimated probabilities are:
     $$P[d(\overrightarrow{v},\overrightarrow{w}) \geqslant \rho] = 0.667$$
-    \item (b) The event that $d(\overrightarrow{v},\overrightarrow{w}) \geqslant \rho$ is independent of the value of $\rho$.
+    \item (b) The event that $d(\overrightarrow{v},\overrightarrow{w}) \geqslant \rho$ is independent of the value of $\rho$. The reason is that as we do Monte Carlo simulation, we draw sample of $\theta \sim Uniform(-\pi, \pi)$, and $d(\overrightarrow{v},\overrightarrow{w})$ scales 
+    at the same rate with $\rho$ as $\rho$ changes. 
+    
         \end{enumerate}
         
 \end{enumerate}
