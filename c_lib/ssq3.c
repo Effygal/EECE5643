@@ -127,7 +127,7 @@
       number--;
       if (number > 0)
         t.completion = t.current + GetService();
-      else
+      else //number == 0
         t.completion = INFINITY;
     }
   } 

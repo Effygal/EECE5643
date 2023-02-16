@@ -1,0 +1,219 @@
+Ex. 3.1.1
+(a) for 1000000 jobs
+   average inter-arrival time =   2.00
+   average wait ............ =   6.04
+   average delay ........... =   4.53
+   average service time .... =   1.50
+   average # in the node ... =   3.02
+   average # in the queue .. =   2.27
+   utilization ............. =   0.75
+(b) Mean r, mean s, mean x remains the same and others change;
+(c) Because for X in Exp(1.5) with λ = 1.5, the pdf of X decays fairly quick with a long tail, meaning that the majority of instance x of X would have a value larger than 1.5.
+
+
+Ex.3.1.5
+(a)
+for 1000000 jobs
+   average inter-arrival time =   2.00
+   average wait ............ =   5.82
+   average delay ........... =   4.32
+   average service time .... =   1.50
+   average # in the node ... =   2.91
+   average # in the queue .. =   2.16
+   utilization ............. =   0.75
+The simulation results above indicates that the mean service time is 1.5.
+
+(b) The simulation results in above section verifies the steady-state statistics in Example 3.1.4.
+
+(c) The average inter-arrival time r is the same with Ex.3.1.1 because we designed to 
+draw r from the exponential distribution with the same λ = 1/r; the average service time
+is the same for the same reason that we draw service time s from distributions with the same mean;
+Utilization = λ / μ where μ = 1/mean s, both λ and μ remain the same, so as the utilization.
+
+Ex.3.3.1
+(a) X is the number of times a job feeds back, meaning that the job departure at (X+1) time i.e., X+1 ~ Geometric(1-β),
+therefore Pr(X = x) = β^x * (1-β).
+This formula is derived from the definition of a geometric distribution, which models the number of independent Bernoulli trials needed to 
+achieve the first success (departure), where the probability of success (departure) is 1-β in our case.
+(b) The discussion of acceptance/rejection in Section 2.3 (Example 2.3.8) involves the probability of accepting or rejecting a proposal 
+based on whether or not it meets certain criteria. This can be modeled using a Bernoulli distribution, where the probability of acceptance 
+is p and the probability of rejection is 1-p.
+The geometric distribution of X+1 in this problem is related to the acceptance/rejection model in that X represents the number of times 
+a failure (feed back) needed to happen with probability β, before the first success (with probability 1-β) occur.
+
+Ex.3.3.4
+(a)
+with Service time drawn from Uniform(1.0, 2.0):
+
+for 4760 jobs with queue capacity 0
+   average rejection rate ...= 0.525187
+   average inter-arrival time =   4.20
+   average wait ............ =   2.20
+   average delay ........... =   0.00
+   average service time .... =   2.20
+   average # in the node ... =   0.52
+   average # in the queue .. =   0.00
+   utilization ............. =   0.52
+
+for 8174 jobs with queue capacity 1
+   average rejection rate ...= 0.184638
+   average inter-arrival time =   2.45
+   average wait ............ =   1.96
+   average delay ........... =   0.46
+   average service time .... =   1.50
+   average # in the node ... =   0.80
+   average # in the queue .. =   0.19
+   utilization ............. =   0.61
+
+for 9103 jobs with queue capacity 2
+   average rejection rate ...= 0.091970
+   average inter-arrival time =   2.20
+   average wait ............ =   2.44
+   average delay ........... =   0.94
+   average service time .... =   1.50
+   average # in the node ... =   1.11
+   average # in the queue .. =   0.43
+   utilization ............. =   0.68
+
+for 9525 jobs with queue capacity 3
+   average rejection rate ...= 0.049875
+   average inter-arrival time =   2.10
+   average wait ............ =   2.83
+   average delay ........... =   1.32
+   average service time .... =   1.50
+   average # in the node ... =   1.35
+   average # in the queue .. =   0.63
+   utilization ............. =   0.72
+
+for 9732 jobs with queue capacity 4
+   average rejection rate ...= 0.029227
+   average inter-arrival time =   2.05
+   average wait ............ =   3.15
+   average delay ........... =   1.65
+   average service time .... =   1.50
+   average # in the node ... =   1.53
+   average # in the queue .. =   0.80
+   utilization ............. =   0.73
+
+for 9855 jobs with queue capacity 5
+   average rejection rate ...= 0.016958
+   average inter-arrival time =   2.03
+   average wait ............ =   3.39
+   average delay ........... =   1.88
+   average service time .... =   1.50
+   average # in the node ... =   1.67
+   average # in the queue .. =   0.93
+   utilization ............. =   0.74
+
+for 9942 jobs with queue capacity 6
+   average rejection rate ...= 0.008279
+   average inter-arrival time =   2.01
+   average wait ............ =   3.58
+   average delay ........... =   2.08
+   average service time .... =   1.50
+   average # in the node ... =   1.78
+   average # in the queue .. =   1.03
+   utilization ............. =   0.75
+
++----------------+------+------+------+------+------+------+
+| capacity       | 1    | 2    | 3    | 4    | 5    | 6    |
++----------------+------+------+------+------+------+------+
+| Rejection Rate | 0.18 | 0.09 | 0.05 | 0.03 | 0.02 | 0.01 |
++----------------+------+------+------+------+------+------+
+
+(b)
+with Service time drawn from Uniform(1.0, 3.0):
+
+for 3844 jobs with queue capacity 0
+   average rejection rate ...= 0.616559
+   average inter-arrival time =   5.20
+   average wait ............ =   3.22
+   average delay ........... =   0.00
+   average service time .... =   3.22
+   average # in the node ... =   0.62
+   average # in the queue .. =   0.00
+   utilization ............. =   0.62
+
+for 7241 jobs with queue capacity 1
+   average rejection rate ...= 0.277706
+   average inter-arrival time =   2.76
+   average wait ............ =   2.78
+   average delay ........... =   0.77
+   average service time .... =   2.00
+   average # in the node ... =   1.01
+   average # in the queue .. =   0.28
+   utilization ............. =   0.73
+
+for 8140 jobs with queue capacity 2
+   average rejection rate ...= 0.188030
+   average inter-arrival time =   2.46
+   average wait ............ =   3.75
+   average delay ........... =   1.75
+   average service time .... =   2.00
+   average # in the node ... =   1.53
+   average # in the queue .. =   0.71
+   utilization ............. =   0.82
+
+for 8593 jobs with queue capacity 3
+   average rejection rate ...= 0.142843
+   average inter-arrival time =   2.33
+   average wait ............ =   4.75
+   average delay ........... =   2.75
+   average service time .... =   2.00
+   average # in the node ... =   2.04
+   average # in the queue .. =   1.18
+   utilization ............. =   0.86
+
+for 8892 jobs with queue capacity 4
+   average rejection rate ...= 0.113017
+   average inter-arrival time =   2.25
+   average wait ............ =   5.78
+   average delay ........... =   3.77
+   average service time .... =   2.00
+   average # in the node ... =   2.57
+   average # in the queue .. =   1.68
+   utilization ............. =   0.89
+
+for 9087 jobs with queue capacity 5
+   average rejection rate ...= 0.093566
+   average inter-arrival time =   2.20
+   average wait ............ =   6.87
+   average delay ........... =   4.87
+   average service time .... =   2.00
+   average # in the node ... =   3.12
+   average # in the queue .. =   2.21
+   utilization ............. =   0.91
+
+for 9205 jobs with queue capacity 6
+   average rejection rate ...= 0.081796
+   average inter-arrival time =   2.17
+   average wait ............ =   7.84
+   average delay ........... =   5.84
+   average service time .... =   2.00
+   average # in the node ... =   3.61
+   average # in the queue .. =   2.69
+   utilization ............. =   0.92
+
++----------------+------+------+------+------+------+------+
+| capacity       | 1    | 2    | 3    | 4    | 5    | 6    |
++----------------+------+------+------+------+------+------+
+| Rejection Rate | 0.28 | 0.19 | 0.14 | 0.11 | 0.09 | 0.08 |
++----------------+------+------+------+------+------+------+
+
+(c)
+As service time drawn from a uniform distribution with larger mean, the expectation of 
+service time increase, which causes the number of jobs in the queue increase, therefore 
+we observe an overall increase in rejection rate. Also observe that apart from the average inter-arrival
+time remains the same, other statistics including average wait, average delay, average service time,
+average # in the node, average # in the queue, and utilization all increase as the service time is 
+drawn from a distribution with larger mean
+
+(d)
+We first verify with a simple balance equation:
+      average arrival rate  = average service rate * utilization
+Observe that all of the simulation statistics satisfy the balance equation;
+Second, observe the solution output of (b), with expected inter-arrival time and expected service time to both 
+equal to 2.0, in each of our simulation result, observe that the rejection rate equals to 1 - server utilization;
+also observe that for the case when queue size equal to 0, the rejection rate equals to the server utilization.
+The reason is that as there is no queue, the fraction that server's busy is the same with the rate that the server 
+can not receive new jobs i.e., the rejection rate.

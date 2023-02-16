@@ -28,6 +28,7 @@
         "__string": "c",
         "bitset": "c",
         "ostream": "c",
-        "utility": "c"
+        "utility": "c",
+        "__bit_reference": "c"
     }
 }
