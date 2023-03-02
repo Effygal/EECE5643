@@ -8,16 +8,16 @@ OBJFILES = rng.o rngs.o rvgs.o rvms.o librvgs.so cdh.o libcdh.so cdh
 
 all: $(OBJFILES)
 
-rng.o: ../c_lib/rng.c ../c_lib/rng.h
+rng.o: ../../c_lib/rng.c ../../c_lib/rng.h
 	$(CC) -c $<
 
-rngs.o: ../c_lib/rngs.c ../c_lib/rngs.h
+rngs.o: ../../c_lib/rngs.c ../../c_lib/rngs.h
 	$(CC) -c $<
 
-rvgs.o: ../c_lib/rvgs.c ../c_lib/rvgs.h ../c_lib/rngs.c ../c_lib/rngs.h
+rvgs.o: ../../c_lib/rvgs.c ../../c_lib/rvgs.h ../../c_lib/rngs.c ../../c_lib/rngs.h
 	$(CC) -c $<
 
-rvms.o: ../c_lib/rvms.c ../c_lib/rvms.h ../c_lib/rngs.c ../c_lib/rngs.h
+rvms.o: ../../c_lib/rvms.c ../../c_lib/rvms.h ../../c_lib/rngs.c ../c_lib/rngs.h
 	$(CC) -c $<
 
 librvgs.so: rvgs.o rngs.o

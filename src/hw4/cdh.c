@@ -19,24 +19,15 @@
 #include <stdio.h>
 #include <math.h> 
 
-#define  MIN     0.0
-#define  MAX     16.0
+// #define  MIN     0.0
+// #define  MAX     16.0
 #define  K       8                          /* number of histogram bins   */
 #define  DELTA   ((MAX - MIN) / K)           /* histogram bin size (width) */
 #define  sqr(x)  ((x) * (x))
 #define FILENAME "ac_services.txt"
 
-/* =========================== */
-   double GetService(FILE *fp)                 /* read a service time */
-/* =========================== */
-{ 
-  double s;
 
-  fscanf(fp, "%lf\n", &s);
-  return (s);
-}
-
-  int main(void)
+  int cdh(int64_t k, double MIN, double MAX)
 {
   double x;                                      /* data value          */
   long   j;                                      /* histogram bin index */
@@ -54,14 +45,14 @@
 
   for (j = 0; j < K; j++) 
     midpoint[j] = MIN + (j + 0.5) * DELTA;
-  FILE* file = fopen(FILENAME, "r");
-  if (file == NULL) {
+  FILE* filename = fopen(FILENAME, "r");
+  if (filename == NULL) {
     fprintf(stderr, "Cannot open input file %s\n", FILENAME);
     return (1);
   }
-  while (!feof(file)) {                         /* tally the data */
+  while (!feof(filename)) {                         /* tally the data */
 
-    fscanf(file, "%lf\n", &x);
+    fscanf(filename, "%lf\n", &x);
     index++;
     if ((x >= MIN) && (x < MAX)) {
       j = (long) ((x - MIN) / DELTA);
